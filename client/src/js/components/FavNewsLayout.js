@@ -15,6 +15,7 @@ var FavNewsLayout= React.createClass({
         url:"http://localhost:8080/news/update",
         type:'PUT',
         data: updateObj,
+        headers: { "x-access-token": localStorage.getItem("token") },
         success: function(msg)
         {
 

@@ -5,7 +5,7 @@ var router = express.Router();
 
 //fetching all saved news from db
 router.route("/savednews")
-.post(isLoggedIn,function(req, res){
+.post(function(req, res){
 
   // var movieVar = new Movie();
   //  movieVar.imdbID = req.params.movieId;
@@ -162,6 +162,7 @@ router.route("/update")
 
 
 //function to check whether the user is logged in or not
+
 function isLoggedIn(req,res,next){
   if(req.isAuthenticated()){
     return next();

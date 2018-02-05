@@ -25,6 +25,7 @@ url: url,
 type: 'POST',
 dataType: 'JSON',
 data: obj,
+headers: { "x-access-token": localStorage.getItem("token") },
 success: function(data)
 {
   //alert(data);

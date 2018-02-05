@@ -16,13 +16,17 @@ var Login = React.createClass({
       url:'http://localhost:8080/login',
       type: 'POST',
       data:userObj,
-
+      headers: { "x-access-token": localStorage.getItem("token") },
       success: function(data)
       {
         //alert(data);
-        console.log("Ajax login success");
+        console.log("Ajax login success");  
+       if (data && data.success && data.token) 
+        {   
+       localStorage.setItem("token",data.token);        
         self.props.update(true);
         browserHistory.push('/home');
+      }
       }.bind(this),
       error: function(err)
       {
